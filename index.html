@@ -10,23 +10,48 @@
     <h1>Hola desde html</h1>
 
     <script>
-        var nombre = 'Adrian';
-        var Apellidos = 'Nunez';
+        var edad = prompt('Ingresa tu edad');
+        //var Apellidos = 'Nunez';
 
-        var edad = 12;
-        var plumas = 5;
+       // if(edad >= 18){
+            //console.log('Eres mayor de edad')
+        //}
+       // else{
+           // console.log('Eres menor de edad')
+        //}
+        
+       // if(edad > 100){
+          //  console.log('Mentiroso')
+        //}
+        //if(edad < 1){
+         //   console.log('Mentiroso')
+        //}
 
-        var peso = 66.4
-        var estatura = 1.83
+        if(edad > 100 || edad < 1){
+            console.log('Mentiroso')
+        } else if (edad < 18){
+            console.log('Eres menor de edad')
+        } else if (edad >= 18){
+            console.log('Eres mayor de edad')
+        }
+         
+        
 
-        var enfermedades = false 
-        var servicios = true
 
-        var JuegosEnPropiedad = 65
+        //var edad = 12;
+        //var plumas = 5;
+
+        //var peso = 66.4
+        //var estatura = 1.83
+
+        //var enfermedades = false 
+        //var servicios = true
+
+        //var JuegosEnPropiedad = 65
         //Primer forma de concatenar 
-        console.log('Hola mi nombre es ' + nombre + ' mi edad es de ' +edad);
-        console.log(`Hola mi nombre es ${nombre} mi apellido es ${Apellidos} y tengo una edad de ${edad} tengo ${plumas}
-        plumas en la mochila peso ${peso} kilos y mido ${estatura}`);
+       // console.log('Hola mi nombre es ' + nombre + ' mi edad es de ' +edad);
+       // console.log(`Hola mi nombre es ${nombre} mi apellido es ${Apellidos} y tengo una edad de ${edad} tengo ${plumas}
+        // plumas en la mochila peso ${peso} kilos y mido ${estatura}`);
     </script>
 </body>
 
