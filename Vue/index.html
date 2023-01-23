@@ -9,13 +9,32 @@
 <body>
 
     <div id="app">
-        {{contador}}
-        <button v-on:click="incrementar()">Incrementar</button>
-        <button v-on:click="decrementar()">Decrementar</button>
+        <!-- <h1 v-if="activo==true">Holaaaaa</h1>
+        <h1 v-else>Estoy oculto</h1>
+        <button @click="mostrar()">mostrar</button>
+        <button @click="ocultar()">Ocultar</button> -->
+        <!-- <img src="caguama.jpg" alt="15" v-else="edad==false"><img>
+        <h1>Ingresa tu edad!</h1>
+        <button @click="investigar()">Investigar Edad</button> -->
+        <!-- <h1 v-if="activo">Holaaaas</h1>
+        <button @click="activo=true">Activar</button>
+        <button @click="activo=false">Desactivar</button> -->
+        <h1>Mi nombre es: {{nombre}}</h1>
+        <input v-model="nombre" type="text">
+
+        <h1>Mi carrera es: {{carrera}}</h1>
+        <select v-model="carrera">
+            <option>Ingenieria en sistemas</option>
+            <option>Ingenieria en mecatronica</option>
+            <option>Medicina</option>
+            <option>Arquitectura</option>
+        </select>
+
+
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="Vue.js"></script>
+    <script src="model.js"></script>
     
 </body>
 
