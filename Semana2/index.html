@@ -9,13 +9,25 @@
 <body>
 
     <div id="app2">
-        <h1>Ingresa tu edad</h1>
+        <h1>Mis compras</h1>
+        <input v-model="producto" placeholder="nombre del producto" type="text">
+        <button @click="agregar()">Agregar</button>
+        <button @click="borrar()">Limpiar lista</button>
+
+
+        <table>
+            <tr v-for="producto in carrito">
+                <th>{{producto}}</th>
+            </tr>
+        </table>
+        <!-- <h1>Ingresa tu edad</h1>
         <input v-model="edad" type="number">
         <button @click="calcularEdad()">Calcular</button>
-        <p>{{resultado}}</p>
+        <p>{{resultado}}</p> -->
+        
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="edad.js"></script>
+    <script src="carrito.js"></script>
     
 </body>
 </html>
