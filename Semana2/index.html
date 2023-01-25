@@ -13,8 +13,7 @@
         <input v-model="producto" placeholder="nombre del producto" type="text">
         <button @click="agregar()">Agregar</button>
         <button @click="borrar()">Limpiar lista</button>
-
-
+        
         <table>
             <tr v-for="producto in carrito">
                 <th>{{producto}}</th>
