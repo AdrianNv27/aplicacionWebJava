@@ -4,7 +4,8 @@ Vue.createApp({
             productos: [],
             nombre:'',
             precio:'',
-            cantidad:''
+            cantidad:'',
+            colorTable:'success'
 
         }
     },

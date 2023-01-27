@@ -17,7 +17,7 @@
     <div class="container mt-2" id="app2">
         <h1>Mis productos</h1>
 
-        <form @submit.prevent>
+        <form @submit.prevent="agregar()">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre del producto</label>
                 <input v-model="nombre" type="text" class="form-control">
@@ -33,9 +33,20 @@
                 <input v-model="cantidad" type="number" class="form-control">
             </div>
             
-            <button @click="agregar()" type="submit" class="btn btn-primary">Agregar</button>
+            <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
-        <table class="mt-5 table table-bordered table-striped">
+
+        <select class="form-control mt-3" v-model="colorTable">
+          <option value="dark">Tabla color negro</option>
+          <option value="primary">Tabla color azul</option>
+          <option value="danger">Tabla color rojo</option>
+          <option value="warning">Tabla color amarillo</option>
+          <option value="light">Tabla color blanco</option>
+          <option value="info">Tabla color azul claro</option>
+          <option value="secondary">Tabla color gris</option>
+        </select>
+
+        <table :class="'mt-5 table table-bordered table-striped table-'+colorTable">
             <thead>
               <tr>
                 <th scope="col">Nombre</th>
