@@ -13,21 +13,22 @@
 
 <body>
 
-    <div class="container mt-3" id="app4">
-        <h1>Calcula tu edad</h1>
-        <input v-model="edad" class="form-control" type="text" >
-        <p>{{calculoEdad}}</p>
+    <div class="container mt-3" id="app5">
+        <h1>Elije tu fruta</h1>
+        <select v-model="fruta" class="form-control">
+            <option values="Manzana">Manzana</option>
+            <option values="Naranja">Naranja</option>
+            <option values="Pera">Pera</option>
+        </select>
+        <img :src="frutas">
+
         
 
     </div>
 
 
-
-
-
-
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="app.js"></script>
+    <script src="fruta.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
