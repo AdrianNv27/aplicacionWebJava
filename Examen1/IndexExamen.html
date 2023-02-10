@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container mt-3" id="examen">
+        <h1>Cursos</h1>
+
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Nombre del Curso</label>
+                <input v-model="nombre" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Descripcion del curso</label>
+                <input v-model="descripcion" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Precio del Curso</label>
+                <input v-model="precio" type="number" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Cantidad del curso</label>
+                <input v-model="cantidad" type="number" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">URL</label>
+                <input type="text" class="form-control">
+            </div>
+
+        </form>
+        <button @click="agregar()" type="submit" class="btn btn-primary btn-sm">Agregar</button>
+        <div class="d-flex flex-wrap">
+            <div v-for=" curso in cursos" class="card m-2" style="width: 14rem;">
+                <img src="" class="card-img-top" alt="5">
+                <div class="card-body">
+                    <h5 class="card-title">{{curso.nombre}}</h5>
+                    <p class="card-text">{{curso.descripcion}}</p>
+                    <a href="" class="btn btn-primary">Precio ${{curso.precio}}</a>
+                    <a href="#" class="card-link">{{curso.cantidad}}</a>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="card-link">Usted adquirio: {{curso.cantidad}} cursos</a>
+                    
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <h1>Acumulado {{total}} </h1>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="Exa.js"></script>
+</body>
+
+</html>
