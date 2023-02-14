@@ -23,7 +23,14 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">{{pokemon.name}}</h5>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <p>Habilidades</p>
+                        <small class="badge bg-primary mx-1" v-for="habilidad in pokemon.abilities">{{habilidad.ability.name}}</small>
+                        <p>Tipo de pokemon</p>
+                        <small class="badge bg-warning mx-1" v-for="tipo in pokemon.types">{{tipo.type.name}}</small>
+                        <p>Juego donde aparece</p>
+                        <small class="badge bg-success mx-1" v-for="idpokedex in pokemon.game_indices">{{idpokedex.version.name}}</small>
+                        <p>Estadisticas</p>
+                        <small class="badge bg-danger mx-1" v-for="Estadistics in pokemon.stats">{{Estadistics.stat.name}} {{Estadistics.base_stat}}</small>
                     </div>
                 </div>
             </div>
