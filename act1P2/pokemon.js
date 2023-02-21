@@ -1,22 +1,29 @@
 Vue.createApp({
     data() {
         return {
-            pokemon: []
+            pokemones: [],
+            loading: null,
+            limite: 10
 
         }
     },
-    methods: {
-        async getPokemon(){
-            this.pokemon =[];
-            for( i=1; i < 500; i++) {
-                const val = Math.floor(Math.random() *  50)
-                const response = await fetch('https://pokeapi.co/api/v2/pokemon/' + val,{
-                    method: 'GET'
-                })
-                const dataPukemon = await response.json();
-                this.pokemon.push(dataPukemon)
-        }
-        }
+    mounted() {
+        this.getPokemon()
+
     },
-}
-).mount('#Parcial2')
+    methods: {
+        async getPokemon() {
+            this.loading = true;
+            var i = 1;
+            while (i <= this.limite) {
+                const response = await fetch('https://pokeapi.co/api/v2/pokemon/' + i, {
+                    method: 'GET'
+                });
+                const pokemon = await response.json();
+                this.pokemones.push(pokemon);
+                i++;
+            }
+            this.loading = false;
+        },
+    }
+}).mount('#Parcial2')

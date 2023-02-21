@@ -13,9 +13,26 @@
 <body>
 
   <div class="container mt-3" id="Parcial2">
-    <button @click="getPokemon()" class="btn btn-primary">obtener</button>
-    <div v-if="pokemon.length >0">
-      <div v-for="pokemon in pokemon" class="card mb-3" style="max-width: 540px;">
+    
+    <select v-model="limit" class="form-select" aria-label="default select example">
+      <option value="20">20 Pokemones</option>
+      <option value="100">100 Pokemones</option>
+      <option value="200">200 Pokemones</option>
+      <option value="300">300 Pokemones</option>
+      <option value="400">400 Pokemones</option>
+      <option value="500">500 Pokemones</option>
+    </select>
+    <button @click="getPokemon()" class="btn btn-primary mt-3">Obten tus pokemones!!</button>
+
+    <center v-if="loading==true">
+      <img
+        src="https://www.bing.com/th/id/OGC.dc9756d0147d0e5135b5bcd3f85e07b8?pid=1.7&rurl=https%3a%2f%2fmedia1.tenor.com%2fimages%2fdc9756d0147d0e5135b5bcd3f85e07b8%2ftenor.gif%3fitemid%3d13709403&ehk=FZGhMSEIScKPHnoI3oqslc8zry4y%2bMR4%2b2YulHcsJMo%3d"
+        alt="1">
+      <p>Loading......</p>
+    </center>
+    <div class="d-flex flex-wrap">
+
+      <div v-for="pokemon in pokemones" v-if="loading==false" class="card m-2" style="width: 14rem;">
         <div class="row g-0">
           <div class="col-md-4">
             <img :src="pokemon.sprites.other.home.front_shiny" class="img-fluid rounded-start" alt="...">
@@ -39,12 +56,14 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="pokemon.js"></script>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="pokemon.js"></script>
 </body>
 
 </html>
