@@ -3,7 +3,8 @@ Vue.createApp({
         return {
             pokemones: [],
             loading: null,
-            limite: 10
+            limite: 10,
+            pokemonData: null
 
         }
     },
@@ -13,6 +14,7 @@ Vue.createApp({
     },
     methods: {
         async getPokemon() {
+            this.pokemones = []
             this.loading = true;
             var i = 1;
             while (i <= this.limite) {
@@ -25,5 +27,10 @@ Vue.createApp({
             }
             this.loading = false;
         },
+    },
+    watch: {
+        limite() {
+            this.getPokemon();
+        }
     }
 }).mount('#Parcial2')

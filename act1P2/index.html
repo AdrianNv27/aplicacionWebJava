@@ -13,8 +13,8 @@
 <body>
 
   <div class="container mt-3" id="Parcial2">
-    
-    <select v-model="limit" class="form-select" aria-label="default select example">
+
+    <select v-model="limite" class="form-select" aria-label="default select example">
       <option value="20">20 Pokemones</option>
       <option value="100">100 Pokemones</option>
       <option value="200">200 Pokemones</option>
@@ -22,7 +22,7 @@
       <option value="400">400 Pokemones</option>
       <option value="500">500 Pokemones</option>
     </select>
-    <button @click="getPokemon()" class="btn btn-primary mt-3">Obten tus pokemones!!</button>
+
 
     <center v-if="loading==true">
       <img
@@ -32,7 +32,8 @@
     </center>
     <div class="d-flex flex-wrap">
 
-      <div v-for="pokemon in pokemones" v-if="loading==false" class="card m-2" style="width: 14rem;">
+      <div v-for="pokemon in pokemones" v-if="loading==false" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        @click="pokemonData=pokemon" class="card m-1" style="width: 14rem;">
         <div class="row g-0">
           <div class="col-md-4">
             <img :src="pokemon.sprites.other.home.front_shiny" class="img-fluid rounded-start" alt="...">
@@ -48,17 +49,48 @@
               <p>Estadisticas</p>
               <small class="badge bg-success mx-1" v-for="atributes in pokemon.stats">{{atributes.stat.name}}:
                 {{atributes.base_stat}}</small>
-              <p>Juegos donde aparece</p>
-              <small class="badge bg-primary mx-1" v-for="indixes in pokemon.game_indices">{{indixes.game_index}}:
-                {{indixes.version.name}}</small>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div v-if="pokemonData!=null" class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{pokemonData.name}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img :src="pokemonData.sprites.other.home.front_shiny" class="img-fluid rounded-start" alt="...">
+          <p>Habilidades</p>
+          <small class="badge bg-primary mx-1" v-for="habilidad in pokemonData.abilities">{{habilidad.ability.name}}</small>
+          <p>Tipo</p>
+          <small class="badge bg-warning mx-1" v-for="tipo in pokemonData.types">{{tipo.type.name}}</small>
+          <p>Estadisticas</p>
+          <small class="badge bg-success mx-1" v-for="atributes in pokemonData.stats">{{atributes.stat.name}}:
+            {{atributes.base_stat}}</small>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
   </div>
+ 
+
+
 
   </div>
+
+
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
